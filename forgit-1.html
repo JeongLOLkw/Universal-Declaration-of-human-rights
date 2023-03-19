@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Typing Effect</title>
+        <style>
+            body {
+                background-color: black;
+                color: green;
+            }
+            h1 {
+                color: aquamarine;
+            }
+            #text {
+                white-space: pre-wrap;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 25em;
+                overflow: hidden;
+                margin: 0 auto;
+                font-size: 30px;
+                animation: typing 7s steps(50) infinite,
+                                  blink-caret .75 step-end infinite;
+            }
+            p {
+                font-weight: bold;
+                font-family: 'jua';
+                font-size: small;
+                white-space: pre-wrap;
+            }
+            @keyframes typing {
+                from { width: 0 }
+                to { width: 100% }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Universal Declaration of human rights</h1>
+        <p id="text">Ⅰ : Omnes homines liberi aequique dignitate atque juribus nascuntur. Ratione conscientiaque praediti sunt et alii erga alios cum fraternitate se gerere debent.</p>
+
+        <script>
+            var text = document.getElementById('text').innerText;
+
+             document.getElementById('text').innerText = ' ';
+             var i = 0;
+             function typing() {
+                if (i < text.length) {
+                    document.getElementById('text').innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, 200);
+                }
+            }
+             typing();
+        </script>
+    </body>
+</html>
